@@ -10,8 +10,8 @@ module Cluster
   module Command
     class KubeAws
       class << self
-        def kube_aws
-          Cluster::KubeAws.execute
+        def kube_aws(args = [])
+          Cluster::KubeAws.execute(args)
         end
       end
     end

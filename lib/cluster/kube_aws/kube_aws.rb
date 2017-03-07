@@ -76,10 +76,10 @@ module Cluster
         nil
       end
 
-      def execute
+      def execute(args = [])
         path = get_target_path
 
-        cmd = "#{path}"
+        cmd = "#{path} #{args.join(' ')}"
         out = system(cmd)
       end
     end

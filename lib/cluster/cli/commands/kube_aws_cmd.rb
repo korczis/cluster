@@ -10,8 +10,8 @@ module Cluster
   module CLI
     desc 'kube-aws wrapper'
     command 'kube-aws' do |c|
-      c.action do
-        Cluster::Command::KubeAws.kube_aws
+      c.action do |_global_options, _options, args|
+        Cluster::Command::KubeAws.kube_aws(args)
       end
     end
   end

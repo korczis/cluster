@@ -10,8 +10,8 @@ module Cluster
   module Command
     class Kubectl
       class << self
-        def kubectl
-          Cluster::Kubectl.execute
+        def kubectl(args = [])
+          Cluster::Kubectl.execute(args)
         end
       end
     end

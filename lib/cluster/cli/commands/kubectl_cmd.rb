@@ -10,8 +10,8 @@ module Cluster
   module CLI
     desc 'kubectl wrapper'
     command :kubectl do |c|
-      c.action do
-        Cluster::Command::Kubectl.kubectl
+      c.action do |_global_options, _options, args|
+        Cluster::Command::Kubectl.kubectl(args)
       end
     end
   end
