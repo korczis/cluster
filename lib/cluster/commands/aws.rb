@@ -4,24 +4,14 @@
 # This source code is licensed under the MIT-style license found in the
 # LICENSE file in the root directory of this source tree.
 
-require_relative '../aws/aws'
-require_relative '../kubectl/kubectl'
 require_relative '../kube_aws/kube_aws'
 
 module Cluster
   module Command
-    class Get
+    class Aws
       class << self
-        def aws
-          Cluster::Aws.get
-        end
-
-        def kubectl
-          Cluster::Kubectl.get
-        end
-
-        def kube_aws
-          Cluster::KubeAws.get
+        def aws(args = [])
+          Cluster::Aws.execute(args)
         end
       end
     end

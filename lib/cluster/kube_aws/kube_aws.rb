@@ -7,6 +7,8 @@
 require 'os'
 require 'tempfile'
 
+require_relative '../helpers/helpers'
+
 module Cluster
   class KubeAws
     class << self
@@ -43,14 +45,6 @@ module Cluster
         "#{KubeAws.get_target_dir}/#{KubeAws.get_target_filename}"
       end
 
-      def get_temp_path
-        t = ::Tempfile.new(get_compressed_filename)
-        temp_path = t.path
-        t.close
-        t.unlink
-        temp_path
-      end
-
       def get_compressed_directory
         if OS.mac?
           'darwin-amd64'
@@ -61,7 +55,7 @@ module Cluster
 
       def get
         url = get_url
-        temp_path = get_temp_path
+        temp_path = Helpers.get_temp_path(get_compressed_filename)
 
         cmd = "curl -o #{temp_path} -LO #{url}"
         out = system(cmd)

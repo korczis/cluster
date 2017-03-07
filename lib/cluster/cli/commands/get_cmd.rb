@@ -10,6 +10,13 @@ module Cluster
   module CLI
     desc 'Get tools'
     command :get do |c|
+      c.desc 'Get aws'
+      c.command 'aws' do |subcommand|
+        subcommand.action do |_global_options, _options, _args|
+          Cluster::Command::Get.aws
+        end
+      end
+
       c.desc 'Get kubectl'
       c.command :kubectl do |subcommand|
         subcommand.action do |_global_options, _options, _args|
