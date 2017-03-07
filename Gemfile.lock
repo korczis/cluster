@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    cluster (0.1.0)
+      gli (~> 2.15)
+      os (~> 1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    gli (2.15.0)
+    os (1.0.0)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  cluster!
+
+BUNDLED WITH
+   1.14.4
